@@ -5,7 +5,7 @@
 // This program will print "Hello World" to the console 5 times.
 // It will continue to do so until the user gives an input other than "Yes" (case insensitive).
 
-package HW_0;
+package HW_0.HelloWorld;
 
 // Imports
 import java.util.Scanner;
