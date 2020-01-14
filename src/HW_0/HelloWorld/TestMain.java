@@ -31,16 +31,23 @@ public class TestMain
 	 */
 	public static void main(String[] args)
 	{
-		String input = "Yes";	// Default input is set to "Yes" to meet the conditions for starting the while loop.
+		// Default input is set to "Yes" to meet the conditions for starting the while loop.
+		String input = "Yes";
 		
-		while (input.equalsIgnoreCase("Yes"))	// Repeat as long as the user input remains "Yes" (case insensitive).
+		// Repeat as long as the user input remains "Yes" (case insensitive).
+		while (input.equalsIgnoreCase("Yes"))
 		{
-			for (int i = 0; i < 5; i++)		// Print "Hello World" to the console 5 times.
+			// Print "Hello World" to the console 5 times.
+			for (int i = 0; i < 5; i++)	
 			{
 				System.out.println("Hello World!");
 			}
-			System.out.println("Do you want to see \"Hello World\" again?");	// Ask the user if they would like to see "Hello World" again.
-			input = scanner.nextLine();		// Takes the next line of the console as user input (after the enter key is pressed).
+			
+			// Ask the user if they would like to see "Hello World" again.
+			System.out.println("Do you want to see \"Hello World\" again?");
+			
+			// Takes the next line of the console as user input (after the enter key is pressed).
+			input = scanner.nextLine();
 		}
 	}
 }
