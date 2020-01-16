@@ -7,17 +7,17 @@ public class InventoryEngine {
 	
 	public static void main(String [] args)
 	{
-		Inventory inv = new ABCInventory();
+		Inventory inv = new InventoryLog();
 		testInventory(inv);
-		populate(inv, "alphabet.txt");
-		System.out.println(inv);
+//		populate(inv, "alphabet.txt");
+//		System.out.println(inv);
 	}
 	
 	public static void populate(Inventory inv, String fileName)
 	{
 		try
 		{
-			Scanner file = new Scanner(new File("G:\\School\\CS-143-Workspace\\CS-143-HW\\src\\HW_1\\Inventory\\data\\"
+			Scanner file = new Scanner(new File("C:\\School\\CS-143-Workspace\\CS-143-HW\\src\\HW_1\\Inventory\\data\\"
 			+ fileName));
 			
 			while (file.hasNextLine())
@@ -38,14 +38,28 @@ public class InventoryEngine {
 	public static void testInventory(Inventory inv)
 	{
 		inv.add('a');
-		inv.add('b');
-		inv.subtract('A');
-		inv.set('c', 23);
+		inv.add('!');
 		
 		System.out.println(inv);
 		
-		inv.set('a', 0);
-		inv.set('b', 0);
-		inv.set('c', 0);
+		inv.subtract('A');
+		
+		System.out.println(inv);
+		
+		inv.subtract('a');
+		
+		System.out.println(inv);
+		
+		inv.add('A');
+		inv.set('c', 7);
+		
+		System.out.println(inv);
+		
+		System.out.println("Number of Cs: " + inv.get('c'));
+		System.out.println("Size of Inventory = " + inv.size());
+		System.out.println("\"This inventory contains at least 1 !\" is " + inv.contains('!'));
+		System.out.println("\"This inventory contains at least 1 a\" is " + inv.contains('a'));
+		System.out.println("\"This inventory contains at least 1 A\" is " + inv.contains('A'));
+		System.out.println("\"This inventory is empty\" is " + inv.isEmpty());
 	}
 }
