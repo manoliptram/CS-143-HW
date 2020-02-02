@@ -17,6 +17,12 @@ import java.util.Scanner;
  */
 public class TestMain
 {
+	public int[][] matrixAdd(int[][] a, int[][] b)
+	{
+		int[][] c = {{}};
+		return c;
+	}
+	
 	/**
 	 * A scanner used to detect user input.
 	 */
