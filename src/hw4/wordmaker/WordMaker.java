@@ -116,7 +116,6 @@ public class WordMaker
 			{
 				alphabet.add(c);
 			}
-			
 			while (!alphabet.isEmpty())
 			{
 				word += alphabet.grab();
