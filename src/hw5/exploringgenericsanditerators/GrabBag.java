@@ -8,28 +8,62 @@ package hw5.exploringgenericsanditerators;
 
 import java.util.*;
 
-public class GrabBag<E> {
+public class GrabBag<E> implements Iterable<E>
+{
 	private ArrayList<E> bag;
 
-	public GrabBag() {
+	public GrabBag()
+	{
 		bag = new ArrayList<E>();
 	}
 
-	public void add(E data) {
+	public void add(E data)
+	{
 		bag.add(data);
 	}
+	
+	public Iterator<E> iterator()
+	{
+		return new GrabBagIterator<E>();
+	}
+	
+	private class GrabBagIterator<E> implements Iterator<E>
+	{
+		int currentIndex = 0;
+		
+		@Override
+		public boolean hasNext()
+		{
+			return currentIndex < bag.size();
+		}
+		
+		@Override
+		public E next()
+		{
+			return (E) bag.get(currentIndex++);
+		}
+		
+		@Override
+		public void remove()
+		{
+			throw new UnsupportedOperationException("Don't use remove on an iterator!");
+		}
+	}
 
-	public E grab() {
+	public E grab()
+	{
 		Random r = new Random();
 		E removed = bag.remove(r.nextInt(bag.size()));
 		return removed;
 	}
 
-	public boolean isEmpty() {
+	public boolean isEmpty()
+	{
 		return bag.size() == 0;
 	}
 
-	public String toString() {
+	public String toString()
+	{
 		return bag.toString();
 	}
 }
