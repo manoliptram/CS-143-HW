@@ -24,12 +24,18 @@ public class LinkedListTester {
 				int removed = llist.removeEnd();
 				System.out.println("Removed " + removed);
 			}
+			else if (option.startsWith("c"))
+			{
+				System.out.println("Contains what? > ");
+				int temp = console.nextInt();
+				System.out.println("List " + ((llist.contains(temp)) ? "contains " + temp : "does not contain " + temp));
+			}
 			System.out.println(llist + " size=" + llist.size());
 		} while(!option.startsWith("d"));
 	}
 
 	public static String displayOptions(Scanner console) {
-		System.out.println("\nOptions: (af) add to front (ae) add to end (rf) remove front (re) remove end (d) done");
+		System.out.println("\nOptions: (af) add to front (ae) add to end (rf) remove front (re) remove end (c) contains (d) done");
 		System.out.print("What do? > ");
 		return console.next().toLowerCase();
 	}

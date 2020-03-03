@@ -61,6 +61,7 @@ public class HTMLParser {
     /** Creates a parser based off the given source File */
     public HTMLParser(File file) {
         try {
+//        	System.out.println(file.getPath());
             parseStream("file " + file.toString() + "'", new FileInputStream(file));
         } catch (FileNotFoundException ee) {
             System.err.println("The file '" + file.toString() + "' is invalid.");

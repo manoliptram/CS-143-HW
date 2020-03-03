@@ -16,15 +16,19 @@ public class HTMLChecker {
         File folder = new File("C:\\Users\\Manoli Tramountanas\\Desktop\\School Documents\\Computer Science 143\\Classwork\\HW\\src\\hw6\\htmlchecker\\tests\\");
         File[] listOfFiles = folder.listFiles();
         
-        for (int i = 0; i < listOfFiles.length; i++)
-        {
-        	System.out.println(listOfFiles[i].getPath());
-        }
+//        for (int i = 0; i < listOfFiles.length; i++)
+//        {
+//        	if (listOfFiles[i].getName().contains(".txt"))
+//        	{
+//        		listOfFiles[i] = null;
+//        	}
+//        }
 
         for (File file: listOfFiles) {
             if (file.isFile()) {
-                String actualResult = check(folder.getName() + "/" + file.getName());
-                String expectedResult = getManager("expected_output/" + file.getName().replace("html", "txt")).toString();
+                String actualResult = check(file.getPath());
+                String fixedFilePath = file.getPath().toString().replace("html", "txt").replace("tests", "expected_output");
+                String expectedResult = getManager(fixedFilePath.replace("txtchecker", "htmlchecker")).toString();
                 if (actualResult.equals(expectedResult))
                     System.out.println("----> Result matches Expected Output!");
                 else {
@@ -69,6 +73,7 @@ public class HTMLChecker {
     }
 
     public static HTMLManager getManager(String file) {
+//    	System.out.println("Fetching manager for " + file);
         HTMLManager m = null;
         HTMLParser parser = getParser(file);
         if (parser != null) {
